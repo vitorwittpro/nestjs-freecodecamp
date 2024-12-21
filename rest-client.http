@@ -1,0 +1,17 @@
+###
+GET  http://127.0.0.1:3000
+
+###
+GET http://127.0.0.1:3000/songs
+
+###
+GET http://127.0.0.1:3000/songs/1
+
+###
+POST http://127.0.0.1:3000/songs
+
+###
+PUT http://127.0.0.1:3000/songs/1
+
+###
+DELETE http://127.0.0.1:3000/songs/1
