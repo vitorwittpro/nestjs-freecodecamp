@@ -9,6 +9,14 @@ GET http://127.0.0.1:3000/songs/1
 
 ###
 POST http://127.0.0.1:3000/songs
+Content-Type: application/json
+
+{
+    "song": "Maya by Gymu",
+    "artists": ["Victor Hugo"],
+    "releasedDate": "2022-10-08",
+    "duration": "04:32"
+}
 
 ###
 PUT http://127.0.0.1:3000/songs/1
