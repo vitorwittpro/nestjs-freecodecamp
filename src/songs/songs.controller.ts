@@ -7,6 +7,8 @@ import {
   Body,
   HttpException,
   HttpStatus,
+  Param,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { CreateSongDto } from './dto/create-songs.dto';
@@ -31,8 +33,14 @@ export class SongsController {
   }
 
   @Get(':id')
-  find(): string {
-    return 'song found';
+  find(
+    @Param(
+      'id',
+      new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    id: number,
+  ): string {
+    return `fetch succesfully completed. song ${typeof id}`;
   }
 
   @Post()
