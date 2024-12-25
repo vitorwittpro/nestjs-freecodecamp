@@ -11,6 +11,7 @@ export class SongsService {
   }
 
   findAll() {
+    throw new Error('Apenas testando um coisa');
     return this.songList;
   }
 }

@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Put, Delete, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Body,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { CreateSongDto } from './dto/create-songs.dto';
 
@@ -8,7 +17,17 @@ export class SongsController {
 
   @Get()
   findAll(): string[] {
-    return this.songService.findAll();
+    try {
+      return this.songService.findAll();
+    } catch (error) {
+      throw new HttpException(
+        'server error',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        {
+          cause: error,
+        },
+      );
+    }
   }
 
   @Get(':id')
